@@ -1,7 +1,7 @@
 import Lista from "./Lista"
-import ListaItem from "./ListaItem";
 
-const Analistas = () => {
+const Clientes = () => {
+
     const clientes = [
         {
           cliente: "Secor",
@@ -44,20 +44,13 @@ const Analistas = () => {
           valor: 90000
         }
       ];
+
     return (
         <>
-            <h1>Valor a pagar por Analista</h1>
-            <ul className="list-group">
-                {
-                    clientes.map((item, index) => {
-                        return(
-                            <ListaItem alt={item.cliente} name={item.cliente} prop={`R$: ${item.valor.toFixed(2)}`} key={index}/>
-                        )
-                    })
-                }
-            </ul>
+            <h1>Valor a receber por Cliente</h1>
+            <Lista />
         </>
     )
 }
 
-export default Analistas
+export default Clientes

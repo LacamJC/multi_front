@@ -1,18 +1,31 @@
+@import '../assets/scss/variables';
+
 .body{
-    background-color: blue;
-    position: absolute;
-    height: 90vh; 
+    background-color: $cor1;
+    // position: absolute;
+    width: max-content; 
     width: 100%;
     top: 15rem;
 
-    padding: 45px 20px;
+    // min-height: 100vh;
+    max-height: max-content;
 
+    transform: translateY(-50px);
+
+    padding: 45px 20px;
+    margin-bottom: 30px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 
     .lineCard{
-        background-color: pink;
-        display: flex;
-        justify-content: space-between;
+        background-color: $cor1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-bottom: 50px;
+    }
+
+    .ws{
+        width: 100%;
+        height: 30px;
     }
 }

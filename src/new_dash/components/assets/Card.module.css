@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
+* {
+  font-family: "Roboto Flex", sans-serif;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.card .titulo {
+  font-size: 0.8rem;
+  font-weight: light;
+}
+.card .descricao {
+  font-size: 0.7rem;
+  text-align: start;
+  font-weight: bold;
+}/*# sourceMappingURL=Card.module.css.map */

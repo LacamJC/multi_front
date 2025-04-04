@@ -1,0 +1,15 @@
+@import '../assets/scss/variables';
+
+.card{
+    // background-color: red;
+    .titulo{
+        font-size: .8rem;
+        font-weight: light;
+    }
+
+    .descricao{
+        font-size: .7rem;
+        text-align: start;
+        font-weight: bold;
+    }
+}

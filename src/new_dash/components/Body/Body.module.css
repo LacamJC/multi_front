@@ -1,15 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
+* {
+  font-family: "Roboto Flex", sans-serif;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 400;
+}
+
 .body {
-  background-color: blue;
-  position: absolute;
-  height: 90vh;
+  background-color: #f9f9f9;
+  width: -moz-max-content;
+  width: max-content;
   width: 100%;
   top: 15rem;
+  max-height: -moz-max-content;
+  max-height: max-content;
+  transform: translateY(-50px);
   padding: 45px 20px;
+  margin-bottom: 30px;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
 }
 .body .lineCard {
-  background-color: pink;
-  display: flex;
-  justify-content: space-between;
+  background-color: #f9f9f9;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 50px;
+}
+.body .ws {
+  width: 100%;
+  height: 30px;
 }/*# sourceMappingURL=Body.module.css.map */

@@ -1,0 +1,9 @@
+@import '../scss/variables';
+
+.container{
+    background-color: $cor1;
+    position: relative;
+    min-height: 90vh;
+    max-height: max-content;
+    width: 100%;
+}
