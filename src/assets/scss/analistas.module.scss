@@ -1,0 +1,27 @@
+@import '../variables';
+
+.card {
+    padding: 25px 25px;
+    margin: 25px 25px;
+    background-color: transparent;
+    border: 2px solid $cor1;
+    border-radius: 6px;
+    color: $cor1;
+    transition: 0.5s ease all;
+    position: relative;
+  
+    width: 350px;
+    &:hover {
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.411);
+      // transform: translate(5px, -5px);
+  
+      color: $cor4;
+      background-color: $cor1;
+    }
+
+    .valor_pagar{
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin: 0px 15px;
+    }
+}  

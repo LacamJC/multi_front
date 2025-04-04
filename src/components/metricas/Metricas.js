@@ -4,13 +4,13 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 const Metricas = () => {
     const [data, setData] = useState()
-
+    var limitador = 0
     useEffect(() => {
 
         const fetchData = async () => {
             console.log("Teste")
             try {
-                const response = await axios.get("http://localhost:3002/metrica", {
+                const response = await axios.get("http://192.168.15.2:3002/metrica", {
                     headers: {
                         token: "a92mf83n2mfkb83nHj"
                     }
@@ -36,7 +36,12 @@ const Metricas = () => {
             }
         }
 
-        fetchData()
+        if(limitador == 0)
+        {
+
+            fetchData()
+            limitador++;
+        }
 
 
         console.log("DATA FETCH")
@@ -58,6 +63,15 @@ const Metricas = () => {
                             />
 
 
+                          
+
+                            <Card
+                                titulo="A PAGAR PARA ANALISTAS"
+                                identificador=""
+                                valor={`R$: ${data.a_pagar_analistas.toFixed(2)}`}
+                                descricao=""
+                            />
+ 
                             <Card
                                 titulo="FATURAMENTO TOTAL"
                                 identificador=""
@@ -65,16 +79,8 @@ const Metricas = () => {
                                 descricao=""
                             />
 
-                            <Card
-                                titulo="A PAGAR PARA ANALISTAS"
-                                identificador=""
-                                valor={`R$: ${data.a_pagar_analistas}`}
-                                descricao=""
-                            />
- 
-
                         </>
-                    ) : (<div className="alert alert-danger">Acesso não autorizado</div>)
+                    ) : (<div className="alert alert-danger">Sem dados para analisar</div>)
                 }
             </div>
         </>

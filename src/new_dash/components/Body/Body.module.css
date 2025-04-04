@@ -1,0 +1,15 @@
+.body {
+  background-color: blue;
+  position: absolute;
+  height: 90vh;
+  width: 100%;
+  top: 15rem;
+  padding: 45px 20px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.body .lineCard {
+  background-color: pink;
+  display: flex;
+  justify-content: space-between;
+}/*# sourceMappingURL=Body.module.css.map */
