@@ -9,6 +9,7 @@ import axios from "axios"
 import styles from "./assets/scss/home.module.css"
 import { useEffect, useState } from 'react';
 import Index from './new_dash/Index.js';
+import Footer from './new_dash/components/assets/Footer/Footer.js';
 function App() {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState()
@@ -16,11 +17,12 @@ function App() {
       const sqlAtt = async () =>{
         try{
           console.log("ENVIANDO REQUISICAO")
-          const response = await axios.get("http://192.168.15.2:3002/sql")
+          const response = await axios.get("http://multisoluction.ddns.net:9944/sql")
 
+          console.log(response)
           const data = response.data
+          console.log(`SQL DATA ${data}`)
           console.log(data)
-          
           if(data.loading == false){
             console.log("Dados atualizados com sucesso")
             setData(data)
@@ -34,37 +36,37 @@ function App() {
           console.log(error.message)
         }
       }
-      console.log("OASDOKAKODOKASDOKAKODKO")
+      // console.log("OASDOKAKODOKASDOKAKODKO")
       sqlAtt()
+      console.log('Requisição enviada')
   },[])
 
   return (
     <>
-      {/* <Header />
+    
+      <Header />
+    {
+      loading ? (
+        <div className={`${styles.background}`}>
+          <div class="spinner-border text-info" role="status">
+        <span class="sr-only"></span>
+        </div>
+        </div>
+  )
+      :
+      (
+        <>
+        <Index/>
+        <Footer 
+          data={data.data}
+          hora={data.hora}
+          registros={data.registros}
+        />
 
-      {
-        loading ? (
-          <div className={`${styles.background}`} >
-            
-<div class="spinner-border text-primary" role="status">
-              <span class="sr-only"></span>
-          </div>
-          </div>
-          
-        ) : (
-          <>
-        <Metricas />
-      <ViewAnalista/>
-      <Clientes/>  
-      <h4 className='text-center'>Dados atualizados em {data.data} as {data.hora}</h4>
-          </>
-
+        </>
+      )
+    }
         
-        )
-      }
-       */}
-
-       <Index/>
       </>
   );
 }

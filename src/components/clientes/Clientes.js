@@ -11,7 +11,7 @@ const Clientes = () => {
     useEffect(()=>{
         const fetchData = async () => {
             try{
-                const response = await axios.get("http://192.168.15.2:3002/clientes", {
+                const response = await axios.get("http://multisoluction.ddns.net:9944/clientes", {
                     headers: {
                         token: "a92mf83n2mfkb83nHj"
                     }
@@ -34,9 +34,10 @@ const Clientes = () => {
             <h1 className={`text-center my-5`}>Clientes</h1>
             <div className={`d-flex justify-content-start container align-items-center flex-wrap `}>
             {
-                data ? data.map((registro)=>(
+                data ? data.map((registro, key)=>(
 
                     <Analistas
+                        key={key}
                         nome={registro.cliente}
                         valor={registro.a_faturar}
                     />

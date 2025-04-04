@@ -1,15 +1,15 @@
 import styles from './Footer.module.css'
 
-const Footer = () => {
+const Footer = ({data,hora,registros}) => {
     return (
         <>
             <footer className={`${styles.footer}`}>
                 <div className={`${styles.estatisticas}`}>
                     <h3>
-                        Ultima atualização: 04/04/2025 ás 11:00
+                        Ultima atualização: {data} ás {hora}
                     </h3>
                     <h4>
-                        Registros encontrados: 4
+                        Registros encontrados: {registros}
                     </h4>
                 </div>
             </footer>

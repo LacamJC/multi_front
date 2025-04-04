@@ -10,7 +10,7 @@ const Metricas = () => {
         const fetchData = async () => {
             console.log("Teste")
             try {
-                const response = await axios.get("http://192.168.15.2:3002/metrica", {
+                const response = await axios.get("http://multisoluction.ddns.net:9944/metrica", {
                     headers: {
                         token: "a92mf83n2mfkb83nHj"
                     }

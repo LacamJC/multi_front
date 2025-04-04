@@ -3,15 +3,62 @@ import Analistas from '../listas/Analistas'
 import Clientes from '../listas/Clientes'
 import styles from './Body.module.css'
 import SelectData from '../SelectData/SelectData.js'
+
+import axios from "axios"
+import { useState, useEffect } from 'react'
 const Body = () => {
+    const [data, setData] = useState()
+
+    useEffect(()=>{
+        const fetchData = async () =>{
+            try{
+                const response = await axios.get('http://multisoluction.ddns.net:9944/metrica')
+                const data = response.data
+                setData(data)
+                console.log(response)
+            }
+            catch(err){
+                console.log(err.message)
+            }
+        }
+
+        fetchData()
+    },[])
+
     return(
         <>
         <div className={`${styles.body}`}>
-            <SelectData/>
+            {/* <SelectData/> */}
             <div className={`${styles.lineCard}`}>
-                <Card
+                
+                
+                                {
+                                    data ? (
+                                        <>
+                                            <Card
+                                                titulo="Horas"
+                                                descricao={data.total_horas_apontadas}
+                                            />
+
+                                            <Card 
+                                                titulo="Faturamento"
+                                                descricao={`R$: ${data.fatoramento.total.toFixed(2)}`}
+                                            />
+
+                                            <Card 
+                                                titulo="Analistas"
+                                                descricao={`R$: ${data.a_pagar_analistas.toFixed(2)}`}
+                                                />
+                                                
+                
+            
+                
+                                        </>
+                                    ) : (<div className="alert alert-danger">Sem dados para analisar</div>)
+                                }
+                {/* <Card
                     titulo="Horas Apontadas"
-                    descricao="30:00"    
+                    descricao={data.total_horas_apontadas}    
                 />
                 <Card
                     titulo="Faturamento"
@@ -20,7 +67,7 @@ const Body = () => {
                 <Card
                     titulo="Pagar analistas"
                     descricao="R$:30.000.00"    
-                />
+                /> */}
             </div>
 
             <Analistas/>

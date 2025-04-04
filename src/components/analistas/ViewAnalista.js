@@ -9,7 +9,7 @@ const ViewAnalista = () => {
     useEffect(() => {
         const fetchData = async () => {
             try{
-                const response = await axios.get("http://192.168.15.2:3002/analistas", {
+                const response = await axios.get("http://multisoluction.ddns.net:9944/analistas", {
                     headers: {
                         token: "a92mf83n2mfkb83nHj"
                     }
@@ -37,9 +37,10 @@ const ViewAnalista = () => {
             <div className={`d-flex justify-content-start container align-items-center flex-wrap `}>
              
                 {data ? 
-                    data.map((registro)=>(
+                    data.map((registro, key)=>(
                         <>
                             <Analistas
+                                key={key}
                                 nome={registro.nome}
                                 valor={registro.a_pagar}
                             />
