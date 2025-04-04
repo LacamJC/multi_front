@@ -1,5 +1,5 @@
 import Lista from "./Lista"
-
+import ListaItem from "./ListaItem";
 const Clientes = () => {
 
     const clientes = [
@@ -48,7 +48,15 @@ const Clientes = () => {
     return (
         <>
             <h1>Valor a receber por Cliente</h1>
-            <Lista />
+            <ul className="list-group">
+                {
+                    clientes.map((item, index) => {
+                        return(
+                            <ListaItem alt={item.cliente} name={item.cliente} prop={`R$: ${item.valor.toFixed(2)}`} key={index}/>
+                        )
+                    })
+                }
+            </ul>
         </>
     )
 }

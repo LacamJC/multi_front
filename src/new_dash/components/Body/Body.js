@@ -2,11 +2,12 @@ import Card from '../assets/Card'
 import Analistas from '../listas/Analistas'
 import Clientes from '../listas/Clientes'
 import styles from './Body.module.css'
-
+import SelectData from '../SelectData/SelectData.js'
 const Body = () => {
     return(
         <>
         <div className={`${styles.body}`}>
+            <SelectData/>
             <div className={`${styles.lineCard}`}>
                 <Card
                     titulo="Horas Apontadas"

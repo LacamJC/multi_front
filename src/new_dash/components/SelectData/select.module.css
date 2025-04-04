@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
+* {
+  font-family: "Roboto Flex", sans-serif;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.content {
+  margin-bottom: 30px;
+  margin-bottom: 50px;
+}/*# sourceMappingURL=select.module.css.map */
