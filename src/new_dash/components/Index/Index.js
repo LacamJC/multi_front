@@ -1,7 +1,7 @@
-import Footer from './components/assets/Footer/Footer';
-import Body from './components/Body/Body';
-import Header from './components/Header/Header';
-import styles from './components/assets/scss/index.module.css'
+import Footer from '../Footer/Footer';
+import Body from '../Body/Body';
+import Header from '..//Header/Header';
+import styles from './index.module.css'
 
 const Index = () => {
     return (

@@ -8,8 +8,8 @@ import Clientes from './components/clientes/Clientes.js';
 import axios from "axios"
 import styles from "./assets/scss/home.module.css"
 import { useEffect, useState } from 'react';
-import Index from './new_dash/Index.js';
-import Footer from './new_dash/components/assets/Footer/Footer.js';
+import Index from './new_dash/components/Index/Index.js';
+import Footer from './new_dash/components/Footer/Footer.js';
 function App() {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState()

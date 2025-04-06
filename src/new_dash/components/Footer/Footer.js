@@ -6,10 +6,10 @@ const Footer = ({data,hora,registros}) => {
             <footer className={`${styles.footer}`}>
                 <div className={`${styles.estatisticas}`}>
                     <h3>
-                        Ultima atualização: {data} ás {hora}
+                        Ultima atualização: <span className={`${styles.prop}`}>{data}</span> ás <span className={`${styles.prop}`}>{hora}</span>
                     </h3>
                     <h4>
-                        Registros encontrados: {registros}
+                        Registros encontrados: <span className={`${styles.prop}`}>{registros}</span>
                     </h4>
                 </div>
             </footer>

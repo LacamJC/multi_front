@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
 * {
   font-family: "Roboto Flex", sans-serif;
+  text-shadow: 1px 1px 2px rgba(104, 104, 104, 0.068);
 }
 
 h1 {
@@ -18,6 +19,7 @@ h1 {
   font-size: 14px;
   display: flex;
   justify-content: start;
+  text-shadow: none;
   align-items: center;
 }
 .item_list .prop {
@@ -25,6 +27,7 @@ h1 {
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  text-shadow: none;
 }
 .item_list .prop .label {
   padding: 5px 10px;
@@ -33,4 +36,5 @@ h1 {
   font-size: 14px;
   color: #5D9D7A;
   width: 120px;
+  text-shadow: none;
 }/*# sourceMappingURL=Lista.module.css.map */
