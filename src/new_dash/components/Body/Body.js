@@ -37,7 +37,7 @@ const Body = () => {
     return(
         <>
         <div className={`${styles.body}`}>
-            {/* <SelectData/> */}
+            <SelectData/>
             <div className={`${styles.lineCard}`}>
                 
                 
