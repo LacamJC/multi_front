@@ -4,8 +4,10 @@ import Clientes from '../listas/Clientes'
 import styles from './Body.module.css'
 import SelectData from '../SelectData/SelectData.js'
 
+
+import DataContext from '../../../contexts/DataContext.js'
 import axios from "axios"
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 const Body = () => {
     const [data, setData] = useState()
 
@@ -38,6 +40,7 @@ const Body = () => {
         <>
         <div className={`${styles.body}`}>
             <SelectData/>
+            
             <div className={`${styles.lineCard}`}>
                 
                 

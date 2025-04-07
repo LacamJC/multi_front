@@ -10,6 +10,10 @@ import styles from "./assets/scss/home.module.css"
 import { useEffect, useState } from 'react';
 import Index from './new_dash/components/Index/Index.js';
 import Footer from './new_dash/components/Footer/Footer.js';
+
+import DataContext from './contexts/DataContext.js';
+
+
 function App() {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState()
@@ -42,8 +46,8 @@ function App() {
   },[])
 
   return (
-    <>
     
+      <DataContext.Provider value={{data,setData}}>
       <Header />
     {
       loading ? (
@@ -66,8 +70,8 @@ function App() {
         </>
       )
     }
-        
-      </>
+        </DataContext.Provider>
+    
   );
 }
 
