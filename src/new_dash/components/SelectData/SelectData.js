@@ -28,7 +28,7 @@ function SelectData() {
         const select = event.target.value 
 
         try{
-            const response = await axios.get('http://localhost:3002/mes/'+select)
+            const response = await axios.get('http://multisoluction.ddns.net:9944/mes/'+select)
             const data = response.data 
 
             console.log(data)

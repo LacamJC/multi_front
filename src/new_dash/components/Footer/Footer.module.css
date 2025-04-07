@@ -33,6 +33,11 @@ h1 {
   font-size: 18px;
   margin: 10px 0px;
 }
+@media screen and (max-width: 768px) {
+  .footer .estatisticas h3, .footer .estatisticas h4 {
+    font-size: 14px;
+  }
+}
 .footer .estatisticas h3 .prop, .footer .estatisticas h4 .prop {
   background-color: rgba(249, 249, 249, 0.7176470588);
   color: #424742;
