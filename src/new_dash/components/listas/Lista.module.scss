@@ -13,6 +13,7 @@
         // background-color: yellow;
         display: flex;
         justify-content: start;
+        text-shadow: none;
         align-items: center;
     }
     .prop{
@@ -22,7 +23,7 @@
         justify-content: center;
         align-items: center;
         font-size: 14px;
-
+        text-shadow: none;
         .label{ 
             padding: 5px 10px;
             background-color: #DFFFE8;
@@ -31,6 +32,7 @@
             // font-weight: bold;
             color: #5D9D7A;
             width: 120px;
+            text-shadow: none;
         }
     }
 }

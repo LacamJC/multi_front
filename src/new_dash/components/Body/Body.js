@@ -1,4 +1,4 @@
-import Card from '../assets/Card'
+import Card from '../Card/Card.js'
 import Analistas from '../listas/Analistas'
 import Clientes from '../listas/Clientes'
 import styles from './Body.module.css'
@@ -25,6 +25,15 @@ const Body = () => {
         fetchData()
     },[])
 
+    const formatarParaReal = (valor) => {
+        return valor.toLocaleString('pt-BR', {
+            styles: 'currency',
+            currency: 'BRL',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        })
+    }
+
     return(
         <>
         <div className={`${styles.body}`}>
@@ -42,12 +51,12 @@ const Body = () => {
 
                                             <Card 
                                                 titulo="Faturamento"
-                                                descricao={`R$: ${data.fatoramento.total.toFixed(2)}`}
+                                                descricao={`R$: ${formatarParaReal(data.fatoramento.total)}`}
                                             />
 
                                             <Card 
                                                 titulo="Analistas"
-                                                descricao={`R$: ${data.a_pagar_analistas.toFixed(2)}`}
+                                                descricao={`R$: ${formatarParaReal(data.a_pagar_analistas)}`}
                                                 />
                                                 
                 

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from "./select.module.css"
+import axios from 'axios'
 function SelectData() {
 
     const meses = [
@@ -15,21 +16,37 @@ function SelectData() {
         { mes: "Outubro", valor: 9 },
         { mes: "Novembro", valor: 10 },
         { mes: "Dezembro", valor: 11 }
-      ];
+    ];
 
-      const mesCorrente = new Date().getMonth()
+    const mesCorrente = new Date().getMonth()
 
-  
+
+    
+
+    async function select(event) {
+        console.log("NOVO MES SELECIONADO")
+        const select = event.target.value 
+
+        try{
+            const response = await axios.get('http://localhost:3002/mes/'+select)
+            const data = response.data 
+
+            console.log(data)
+        }
+        catch(err){
+            console.log(err.message)
+        }
+    }
 
     return (
         <>
             <div className={`${styles.content}`}>
-                <select className="form-select" aria-label="Default select example">
-                
-                    <option  selected>Selecione o mes</option>
-                    {meses.map((mes,index) => {
-                        return(
-                            <option key={index} value={mes.valor}>{mes.mes}</option>
+                <select className="form-select" aria-label="Default select example" onChange={select}>
+
+                    <option selected>Selecione o mes</option>
+                    {meses.map((mes, index) => {
+                        return (
+                            <option key={index} value={mes.valor}  >{mes.mes}</option>
                         )
                     })}
                 </select>
