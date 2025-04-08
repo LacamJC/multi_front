@@ -1,78 +1,78 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Header from './components/header/Header';
-import Metricas from './components/metricas/Metricas';
-import Analistas from './components/metricas/Analistas';
-import ViewAnalista from './components/analistas/ViewAnalista.js'
-import Clientes from './components/clientes/Clientes.js';
+import DataContext from "./contexts/DataContext"
+import Index from "./new_dash/components/Index/Index"
+import Header from "./new_dash/components/nav/Header"
+
 import axios from "axios"
-import styles from "./assets/scss/home.module.css"
-import { useEffect, useState } from 'react';
-import Index from './new_dash/components/Index/Index.js';
-import Footer from './new_dash/components/Footer/Footer.js';
+import { useEffect, useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Toaster } from "react-hot-toast"
 
-import DataContext from './contexts/DataContext.js';
+const App = () => {
+  const [data, setData] = useState({
+    loading: true,
+    messages: [] // Inicialize um array para armazenar as mensagens
+  });
+
+  useEffect(() => {
+    const mesRecorrente = async () => {
+      await axios.get('http://multisoluction.ddns.net:9944/mes/15')
+    
+    }
+    mesRecorrente()
 
 
-function App() {
-  const [loading, setLoading] = useState(true)
-  const [data, setData] = useState()
-  useEffect(()=>{
-      const sqlAtt = async () =>{
-        try{
-          console.log("ENVIANDO REQUISICAO")
-          const response = await axios.get("http://multisoluction.ddns.net:9944/sql")
+    const fetchData = async () => {
+     
+      try {
+        // await axios.get('http://multisoluction.ddns.net:9944/mes/3')
+        console.log("Puxando dados principais")
+       
+        //
+        const [sqlResponse, metricaResponse, analistaResponse, clienteResponse] = await Promise.all([
+          axios.get('http://multisoluction.ddns.net:9944/sql'),
+          axios.get('http://multisoluction.ddns.net:9944/metrica'),
+          axios.get('http://multisoluction.ddns.net:9944/analistas'),
+          axios.get('http://multisoluction.ddns.net:9944/clientes')
+        ]);
 
-          console.log(response)
-          const data = response.data
-          console.log(`SQL DATA ${data}`)
-          console.log(data)
-          if(data.loading == false){
-            console.log("Dados atualizados com sucesso")
-            setData(data)
-            setTimeout(()=>{
-              setLoading(data.loading)
-            
-            }, 2000)
-            
-          }
-        }catch(error){
-          console.log(error.message)
-        }
+        setData({
+          loading: false,
+          messages: [
+            { sql: sqlResponse.data },
+            { metrica: metricaResponse.data },
+            { analista: analistaResponse.data },
+            { cliente: clienteResponse.data }
+          ]
+        });
+        //
+
+      } catch (err) {
+        console.error("Error fetching data:", err);
+        setData({
+          loading: false,
+          error: err.message // Adicione um estado de erro para lidar com falhas
+        });
       }
-      // console.log("OASDOKAKODOKASDOKAKODKO")
-      sqlAtt()
-      console.log('Requisição enviada')
-  },[])
+    };
+
+    setTimeout(() => {
+
+      fetchData();
+    }, 1000)  
+  }, []);
+
+  // console.log(data
 
   return (
-    
-      <DataContext.Provider value={{data,setData}}>
+    <DataContext.Provider value={{ data, setData }}>
       <Header />
-    {
-      loading ? (
-        <div className={`${styles.background}`}>
-          <div class="spinner-border text-info" role="status">
-        <span class="sr-only"></span>
-        </div>
-        </div>
+      <Index />
+      {/* <button onClick={()=>{console.log(data)}}>Click</button> */}
+      <Toaster
+        position="left-bottom"
+      />
+    </DataContext.Provider>
   )
-      :
-      (
-        <>
-        <Index/>
-        <Footer 
-          data={data.data}
-          hora={data.hora}
-          registros={data.registros}
-        />
-
-        </>
-      )
-    }
-        </DataContext.Provider>
-    
-  );
 }
 
-export default App;
+export default App

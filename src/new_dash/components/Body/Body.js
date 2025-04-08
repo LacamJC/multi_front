@@ -1,91 +1,45 @@
-import Card from '../Card/Card.js'
+
+import { useContext } from 'react'
+import LineCard from '../LineCard/LineCard'
 import Analistas from '../listas/Analistas'
 import Clientes from '../listas/Clientes'
+import SelectData from '../SelectData/SelectData'
 import styles from './Body.module.css'
-import SelectData from '../SelectData/SelectData.js'
-
-
-import DataContext from '../../../contexts/DataContext.js'
-import axios from "axios"
-import { useState, useEffect, useContext } from 'react'
+import DataContext from '../../../contexts/DataContext'
 const Body = () => {
-    const [data, setData] = useState()
 
-    useEffect(()=>{
-        const fetchData = async () =>{
-            try{
-                const response = await axios.get('http://multisoluction.ddns.net:9944/metrica')
-                const data = response.data
-                setData(data)
-                console.log(response)
-            }
-            catch(err){
-                console.log(err.message)
-            }
-        }
+    const { data, setData } = useContext(DataContext)
 
-        fetchData()
-    },[])
+    console.log(`
+            Data body: ${data.loading} 
+        `)
 
-    const formatarParaReal = (valor) => {
-        return valor.toLocaleString('pt-BR', {
-            styles: 'currency',
-            currency: 'BRL',
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-        })
-    }
 
-    return(
+    return (
         <>
-        <div className={`${styles.body}`}>
-            <SelectData/>
-            
-            <div className={`${styles.lineCard}`}>
-                
-                
-                                {
-                                    data ? (
-                                        <>
-                                            <Card
-                                                titulo="Horas"
-                                                descricao={data.total_horas_apontadas}
-                                            />
+            <div className={`${styles.body}`}>
+                <SelectData />
+                {
+                    data.loading ? (
+                        <div className={`${styles.loader_background}`}>
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    )
+                        :
+                        (
+                            <>
+                                <div className={`${styles.lineCard}`}>
+                                    <LineCard />
+                                </div>
+                                <Analistas />
+                                <Clientes />
+                            </>
+                        )
+                }
 
-                                            <Card 
-                                                titulo="Faturamento"
-                                                descricao={`R$: ${formatarParaReal(data.fatoramento.total)}`}
-                                            />
-
-                                            <Card 
-                                                titulo="Analistas"
-                                                descricao={`R$: ${formatarParaReal(data.a_pagar_analistas)}`}
-                                                />
-                                                
-                
-            
-                
-                                        </>
-                                    ) : (<div className="alert alert-danger">Sem dados para analisar</div>)
-                                }
-                {/* <Card
-                    titulo="Horas Apontadas"
-                    descricao={data.total_horas_apontadas}    
-                />
-                <Card
-                    titulo="Faturamento"
-                    descricao="R$:30.000.00"    
-                />
-                <Card
-                    titulo="Pagar analistas"
-                    descricao="R$:30.000.00"    
-                /> */}
             </div>
-
-            <Analistas/>
-            <div className={`${styles.ws}`}></div>
-            <Clientes/>
-        </div>
         </>
     )
 }

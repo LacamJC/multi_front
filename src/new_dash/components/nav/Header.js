@@ -1,4 +1,4 @@
-import logo from "../../assets/img/BITMAP.png"
+import logo from "../../../assets/img/BITMAP.png"
 
 import styles from "./Header.module.css"
 

@@ -23,6 +23,11 @@ h1 {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
 }
+.body .loader_background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .body .lineCard {
   background-color: #f9f9f9;
   display: grid;

@@ -4,8 +4,10 @@
 
 .item_list{
 
-    display: grid;
+    display: grid !important;
     grid-template-columns: 60% 40%;
+    
+
     height: 50px;
     .desc{
         color: $cor2 ;
@@ -17,7 +19,7 @@
         align-items: center;
     }
     .prop{
-        // color: $cor2;
+        color: $cor2;
         // background-color: pink;
         display: flex;
         justify-content: center;

@@ -1,6 +1,6 @@
 import styles from './Lista.module.css'
 
-const ListaItem = ({name, prop, alt}) => {
+const ListaItem = ({ name, prop, alt }) => {
     return (
         <>
             <li className={`${styles.item_list} list-group-item`} alt={alt}>
