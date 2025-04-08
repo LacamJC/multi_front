@@ -9,6 +9,7 @@ const Index = () => {
             <div className={`${styles.container}`}>
                 <Header />
                 <Body />
+                <Footer />
             </div>
 
         </>

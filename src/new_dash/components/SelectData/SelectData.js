@@ -3,6 +3,7 @@ import styles from "./select.module.css"
 import axios from 'axios'
 import DataContext from '../../../contexts/DataContext';
 import toast, { Toaster } from 'react-hot-toast';
+import Alert from './Alert';
 
 function SelectData() {
 
@@ -14,11 +15,11 @@ function SelectData() {
         // { mes: "Janeiro - 2024", valor: 0 },
         // { mes: "Fevereiro - 2024", valor: 1 },
         // { mes: "Março - 2024", valor: 2 },
-        { mes: "Abril - 2024", valor: 3 },
-        { mes: "Maio - 2024", valor: 4 },
-        { mes: "Junho - 2024", valor: 5 },
-        { mes: "Julho - 2024", valor: 6 },
-        { mes: "Agosto - 2024", valor: 7 },
+        // { mes: "Abril - 2024", valor: 3 },
+        // { mes: "Maio - 2024", valor: 4 },
+        // { mes: "Junho - 2024", valor: 5 },
+        // { mes: "Julho - 2024", valor: 6 },
+        // { mes: "Agosto - 2024", valor: 7 },
         { mes: "Setembro - 2024", valor: 8 },
         { mes: "Outubro - 2024", valor: 9 },
         { mes: "Novembro - 2024", valor: 10 },
@@ -29,11 +30,11 @@ function SelectData() {
         { mes: "Abril - 2025", valor: 15 }
     ];
 
-    const mesCorrente = new Date().getMonth()
+
 
     async function select(event) {
         console.log("NOVO MES SELECIONADO")
-        setData({...data, loading:true})
+        setData({ ...data, loading: true })
         const select = event.target.value
         console.log("mes selecionado : ", select)
 
@@ -43,7 +44,7 @@ function SelectData() {
             setTimeout(() => {
                 const fetchData = async () => {
                     try {
-                        const  [metricaResponse, analistaResponse, clienteResponse] = await Promise.all([
+                        const [metricaResponse, analistaResponse, clienteResponse] = await Promise.all([
                             axios.get('http://multisoluction.ddns.net:9944/metrica'),
                             axios.get('http://multisoluction.ddns.net:9944/analistas'),
                             axios.get('http://multisoluction.ddns.net:9944/clientes')
@@ -52,7 +53,7 @@ function SelectData() {
                         setData({
                             loading: false,
                             messages: [
-                                
+
                                 { metrica: metricaResponse.data },
                                 { analista: analistaResponse.data },
                                 { cliente: clienteResponse.data }
@@ -60,9 +61,9 @@ function SelectData() {
                         });
 
                         console.log(metricaResponse.data)
-                        if(metricaResponse.data.registros >= 0){
-                            notify('Registros encontrados: ' +metricaResponse.data.registros)
-                        }else{
+                        if (metricaResponse.data.registros > 0) {
+                            notify('Registros encontrados: ' + metricaResponse.data.registros)
+                        } else {
                             notifyError('Nenhum registro encontrado')
                         }
                     } catch (err) {
@@ -89,17 +90,17 @@ function SelectData() {
             <div className={`${styles.content}`}>
                 <select className="form-select" aria-label="Default select example" onChange={select}>
 
-                    <option selected>Selecione o mes</option>
+                    <option selected>Abril - 2025</option>
                     {meses.map((mes, index) => {
                         return (
                             <option key={index} value={mes.valor}  >{mes.mes}</option>
                         )
                     })}
                 </select>
-
+                <Alert />
             </div>
             {/* <button onClick={notify}>asdasd</button> */}
-            
+
         </>
     )
 }
