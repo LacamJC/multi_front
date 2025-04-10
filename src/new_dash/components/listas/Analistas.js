@@ -6,6 +6,8 @@ const Analistas = () => {
   const { data } = useContext(DataContext);
   const analistasData = data.messages && data.messages.find(item => item.analista);
   // console.log(analistasData);
+  // console.log(analistas)
+  // console.log(analistasData)
 
   const formatarParaReal = (valor) => {
     return valor.toLocaleString('pt-BR', {
@@ -25,7 +27,7 @@ const Analistas = () => {
             <ListaItem
               alt={item.nome}
               name={item.nome}
-              prop={`R$: ${formatarParaReal(item.a_pagar)}`}
+              prop={`${formatarParaReal(item.a_pagar)}`}
               key={index}
             />
           ))}
