@@ -32,10 +32,39 @@ h1 {
 }
 .item_list .prop .label {
   padding: 5px 5px;
-  background-color: #DFFFE8;
+  background-color: rgba(223, 255, 232, 0.8352941176);
   border-radius: 6px;
   font-size: 14px;
-  color: #5D9D7A;
+  color: rgba(93, 157, 122, 0.6901960784);
   width: 140px;
   text-shadow: none;
+}
+.item_list .prop .label_hour {
+  padding: 5px 5px 5px 5px;
+  background-color: rgba(228, 228, 228, 0.6117647059);
+  border-radius: 6px;
+  font-size: 14px;
+  color: rgba(65, 65, 65, 0.4784313725);
+  width: 75px;
+  text-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+}
+.item_list .prop .label_hour .sp {
+  background-color: transparent;
+  height: 5px;
+  width: 5px;
+}
+.item_list:hover {
+  background-color: rgba(128, 128, 128, 0.11);
+  cursor: default;
+}
+.item_list:hover .prop .label {
+  background-color: #dfffe8;
+  color: #5d9d7a;
+}
+.item_list:hover .prop .label_hour {
+  background-color: #e4e4e4;
 }/*# sourceMappingURL=Lista.module.css.map */

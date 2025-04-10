@@ -28,13 +28,62 @@
         text-shadow: none;
         .label{ 
             padding: 5px 5px;
-            background-color: #DFFFE8;
+            background-color: #dfffe8d5;
             border-radius: 6px;
             font-size: 14px;
             // font-weight: bold;
-            color: #5D9D7A;
+            color: #5d9d7ab0;
             width: 140px;
             text-shadow: none;
         }
+
+        .label_hour{
+            padding: 5px 5px 5px 5px;
+            background-color: #e4e4e49c;
+            border-radius: 6px;
+            font-size: 14px;
+            // font-weight: bold;
+            color: #4141417a;
+            width: 75px;
+            text-shadow: none;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 20px;
+
+            .sp{
+                background-color: transparent;
+                height: 5px;
+                width: 5px;
+            }
+
+        }
     }
+
+    &:hover{
+        background-color: rgba(128, 128, 128, 0.11);
+        cursor: default;
+        .prop{
+         
+            .label{ 
+              
+                background-color: #dfffe8;
+         
+                color: #5d9d7a;
+             
+            }
+    
+            .label_hour{
+                background-color: #e4e4e4;
+
+                
+              
+    
+            }
+        }
+
+    }
+
+    
 }

@@ -38,6 +38,7 @@ const Clientes = () => {
                 name={item.cliente}
                 prop={`R$: ${formatarParaReal(item.a_faturar)}`}
                 key={index}
+                hour={item.horas_apontadas}
               />
             ))
           }

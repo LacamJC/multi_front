@@ -18,7 +18,10 @@ const Analistas = () => {
     });
   };
 
+
   if (analistasData && analistasData.analista && analistasData.analista.length > 0) {
+    console.log(analistasData.analista)
+
     return (
       <>
         <h1>Valor a pagar por Analista</h1>
@@ -29,6 +32,7 @@ const Analistas = () => {
               name={item.nome}
               prop={`${formatarParaReal(item.a_pagar)}`}
               key={index}
+              hour={item.horas_apontadas}
             />
           ))}
         </ul>

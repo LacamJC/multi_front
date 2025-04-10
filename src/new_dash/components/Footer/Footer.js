@@ -25,13 +25,13 @@ const Footer = () => {
             <>
                 <footer className={`${styles.footer}`}>
                     <div className={`${styles.estatisticas}`}>
-                        {/* <h3>
+                        <h3>
                             Ultima atualização: <span className={`${styles.prop}`}>
                                 {formattedDate}
                             </span> ás <span className={`${styles.prop}`}>
                                 {formattedTime}
                             </span>
-                        </h3> */}
+                        </h3>
                         <h4>
                             Registros encontrados: <span className={`${styles.prop}`}>
                                 {infoData.metrica.registros}
