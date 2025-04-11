@@ -27,7 +27,6 @@ h1 {
 .item_list .desc {
   color: #2A2D32;
   font-size: 14px;
-  background-color: yellow;
   display: flex;
   justify-content: start;
   text-shadow: none;
@@ -81,6 +80,12 @@ h1 {
   justify-content: space-between;
   align-items: center;
   margin-right: 20px;
+}
+@media screen and (max-width: 460px) {
+  .item_list .prop .label_hour {
+    font-size: 12px;
+    font-weight: bold;
+  }
 }
 @media screen and (min-width: 420px) {
   .item_list .prop .label_hour {
