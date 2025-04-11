@@ -1,7 +1,9 @@
+@import '../assets/scss/variables';
+
 .background{
     width: 100%;
     height: 300px;
-    background-color: red;
+    background-color: $cor2;
     position: relative;
     &::after{
         content: '';
