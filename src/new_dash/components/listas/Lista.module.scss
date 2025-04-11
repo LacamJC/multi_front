@@ -14,7 +14,7 @@
     .desc {
         color: $cor2;
         font-size: 14px;
-        // background-color: yellow;
+        background-color: yellow;
         display: flex;
         justify-content: start;
         text-shadow: none;
@@ -45,6 +45,8 @@
         background-color: #ffffff;
         padding-left: 5px;
 
+        background-color: bleu;
+
         .label {
             padding: 5px 5px !important;
             background-color: #dfffe8d5;
@@ -68,10 +70,10 @@
             font-size: 14px;
             // font-weight: bold;
             color: #4141417a;
-            width: 45px;
+            width: 80px;
             @media screen and (min-width:420px)
             {
-                width: 70px;
+                width: 80px;
                 font-size: 12px;
             }
             text-shadow: none;
