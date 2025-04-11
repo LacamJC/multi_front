@@ -5,4 +5,11 @@
     // background-color: red;
     // height: 100px;
     margin-bottom: 50px;
+
+    @media screen and (max-width: 468px)
+    {
+        .form_select{
+            border-radius: 0px;
+        }
+    }
 }

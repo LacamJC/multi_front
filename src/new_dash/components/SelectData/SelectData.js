@@ -88,7 +88,7 @@ function SelectData() {
     return (
         <>
             <div className={`${styles.content}`}>
-                <select className="form-select" aria-label="Default select example" onChange={select}>
+                <select className={`${styles.form_select} form-select`} aria-label="Default select example" onChange={select}>
 
                     <option selected>Abril - 2025</option>
                     {meses.map((mes, index) => {

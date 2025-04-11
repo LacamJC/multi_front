@@ -29,7 +29,7 @@ const Clientes = () => {
   if (clientesData && clientesData.cliente && clientesData.cliente.length > 0 ) {
     return (
       <>
-        <h1>Valor a receber por cliente</h1>
+        <h1 className="mx-2">Valor a receber por cliente</h1>
         <ul className="list-group">
           {
             clientesData.cliente.map((item, index) => (

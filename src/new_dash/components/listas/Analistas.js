@@ -24,7 +24,7 @@ const Analistas = () => {
 
     return (
       <>
-        <h1>Valor a pagar por Analista</h1>
+        <h1 className="mx-2">Valor a pagar por Analista</h1>
         <ul className="list-group">
           {analistasData.analista.map((item, index) => (
             <ListaItem

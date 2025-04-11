@@ -12,4 +12,9 @@ h1 {
 .content {
   margin-bottom: 30px;
   margin-bottom: 50px;
+}
+@media screen and (max-width: 468px) {
+  .content .form_select {
+    border-radius: 0px;
+  }
 }/*# sourceMappingURL=select.module.css.map */

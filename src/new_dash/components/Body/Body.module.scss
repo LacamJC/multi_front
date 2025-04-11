@@ -18,7 +18,10 @@
     max-height: max-content;
 
     transform: translateY(-50px);
-
+    @media screen and (max-width: 468px)
+    {
+        padding: 0px;
+    }
     padding: 45px 20px;
     margin-bottom: 30px;
     border-top-left-radius: 30px;

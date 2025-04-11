@@ -14,6 +14,16 @@ h1 {
   grid-template-columns: 60% 40%;
   height: 50px;
 }
+@media screen and (max-width: 768px) {
+  .item_list {
+    grid-template-columns: 50% 50%;
+  }
+}
+@media screen and (max-width: 360px) {
+  .item_list {
+    grid-template-columns: 40% 60%;
+  }
+}
 .item_list .desc {
   color: #2A2D32;
   font-size: 14px;
@@ -21,6 +31,15 @@ h1 {
   justify-content: start;
   text-shadow: none;
   align-items: center;
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width: 375px) {
+  .item_list .desc {
+    width: 110px;
+  }
 }
 .item_list .prop {
   color: #2A2D32;
@@ -29,9 +48,11 @@ h1 {
   align-items: center;
   font-size: 14px;
   text-shadow: none;
+  background-color: #ffffff;
+  padding-left: 5px;
 }
 .item_list .prop .label {
-  padding: 5px 5px;
+  padding: 5px 5px !important;
   background-color: rgba(223, 255, 232, 0.8352941176);
   border-radius: 6px;
   font-size: 14px;
@@ -39,27 +60,41 @@ h1 {
   width: 140px;
   text-shadow: none;
 }
+@media screen and (max-width: 460px) {
+  .item_list .prop .label {
+    width: 150px;
+    font-size: 12px;
+  }
+}
 .item_list .prop .label_hour {
-  padding: 5px 5px 5px 5px;
+  padding: 5px;
   background-color: rgba(228, 228, 228, 0.6117647059);
   border-radius: 6px;
   font-size: 14px;
   color: rgba(65, 65, 65, 0.4784313725);
-  width: 75px;
+  width: 45px;
   text-shadow: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-right: 20px;
 }
+@media screen and (min-width: 420px) {
+  .item_list .prop .label_hour {
+    width: 70px;
+  }
+}
 .item_list .prop .label_hour .sp {
   background-color: transparent;
-  height: 5px;
-  width: 5px;
+  height: 3px;
+  width: 3px;
 }
 .item_list:hover {
   background-color: rgba(128, 128, 128, 0.11);
   cursor: default;
+}
+.item_list:hover .prop {
+  background-color: rgba(128, 128, 128, 0);
 }
 .item_list:hover .prop .label {
   background-color: #dfffe8;

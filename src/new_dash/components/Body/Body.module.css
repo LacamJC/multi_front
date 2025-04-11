@@ -28,6 +28,11 @@ h1 {
   justify-content: center;
   align-items: center;
 }
+@media screen and (max-width: 468px) {
+  .body {
+    padding: 0px;
+  }
+}
 .body .lineCard {
   background-color: #f9f9f9;
   display: grid;

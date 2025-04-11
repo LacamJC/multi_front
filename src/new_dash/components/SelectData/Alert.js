@@ -1,7 +1,7 @@
 const Alert = () => {
     return(
         <>
-        <div id="emailHelp" class="form-text">As informações abaixo serão referentes ao mes selecionado.</div>
+        <div id="emailHelp" class="form-text mx-2">As informações abaixo serão referentes ao mes selecionado.</div>
 
         </>
     )
