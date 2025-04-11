@@ -64,6 +64,7 @@ h1 {
   .item_list .prop .label {
     width: 150px;
     font-size: 12px;
+    font-weight: bold;
   }
 }
 .item_list .prop .label_hour {
@@ -79,9 +80,10 @@ h1 {
   align-items: center;
   margin-right: 20px;
 }
-@media screen and (min-width: 420px) {
+@media screen and (max-width: 460px) {
   .item_list .prop .label_hour {
-    width: 70px;
+    font-size: 12px;
+    font-weight: bold;
   }
 }
 .item_list .prop .label_hour .sp {
