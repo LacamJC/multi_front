@@ -10,7 +10,6 @@ function SelectData() {
     const { data, setData } = useContext(DataContext)
     const notify = (msg) => toast.success(msg);
     const notifyError = (msg) => toast.error(msg)
-
     const meses = [
         // { mes: "Janeiro - 2024", valor: 0 },
         // { mes: "Fevereiro - 2024", valor: 1 },
@@ -27,10 +26,37 @@ function SelectData() {
         { mes: "Janeiro - 2025", valor: 12 },
         { mes: "Fevereiro - 2025", valor: 13 },
         { mes: "Março - 2025", valor: 14 },
-        { mes: "Abril - 2025", valor: 15 }
+        { mes: "Abril - 2025", valor: 15 },
+        { mes: "Maio - 2025", valor: 16}
     ];
 
+    // const gerarUltimosMeses = (quantidade) => {
+    //     const mesesNomes = [
+    //       "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+    //       "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+    //     ];
+      
+    //     const hoje = new Date();
+    //     const meses = [];
+      
+    //     for (let i = 0; i < quantidade; i++) {
+    //       const data = new Date(hoje.getFullYear(), hoje.getMonth() - i);
+    //       const mes = mesesNomes[data.getMonth()];
+    //       const ano = data.getFullYear();
+    //       const valor = data.getMonth() + (12 * (ano - 2024)); // valor acumulado a partir de jan/2024
+      
+    //       meses.push({
+    //         mes: `${mes} - ${ano}`,
+    //         valor: valor
+    //       });
+    //     }
+      
+    //     return meses.reverse(); // do mais antigo para o mais recente
+    //   };
 
+    // const meses = gerarUltimosMeses(7)
+
+    
 
     async function select(event) {
         console.log("NOVO MES SELECIONADO")
